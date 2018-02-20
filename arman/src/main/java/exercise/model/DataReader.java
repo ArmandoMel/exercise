@@ -24,24 +24,7 @@ import exercise.ApplicationException;
 public class DataReader {
 
 	final static Logger logger = Logger.getLogger(DataReader.class);
-	
-	public static void main(String[] args) throws FileNotFoundException {
-		try (Scanner scanner = new Scanner(
-				new File("C:\\Workspaces\\AQR-Exercise\\arman\\src\\main\\resources\\TestData.csv"))) {
-			while (scanner.hasNextLine()) {
-				String line = scanner.nextLine();
-				StringReader lineInputStream = new StringReader(line);
-				try (Scanner lineScanner = new Scanner(lineInputStream)) {
-					lineScanner.useDelimiter(",");
-					while (lineScanner.hasNext()) {
-						System.out.print(lineScanner.next() + "|");
-					}
-					System.out.println("\n");
-				}
-			}
-		}
-	}
-	
+		
 	/**
 	 * 
 	 * @param sourceFile - Source CSV file's name or full path
