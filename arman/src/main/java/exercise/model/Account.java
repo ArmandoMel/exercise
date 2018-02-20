@@ -112,12 +112,48 @@ public class Account implements Serializable {
 		return true;
 	}
 
+	
 
 
 	@Override
 	public String toString() {
 		return "Account [accountId=" + accountId + ", region=" + region + ", country=" + country + ", currency="
 				+ currency + ", grossProfit=" + grossProfit + ", taxRate=" + taxRate + "]";
+	}
+
+	public boolean equalsAllFields(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Account other = (Account) obj;
+		if (accountId != other.accountId)
+			return false;
+		if (country == null) {
+			if (other.country != null)
+				return false;
+		} else if (!country.equals(other.country))
+			return false;
+		if (currency == null) {
+			if (other.currency != null)
+				return false;
+		} else if (!currency.equals(other.currency))
+			return false;
+		if (grossProfit == null) {
+			if (other.grossProfit != null)
+				return false;
+		} else if (!grossProfit.equals(other.grossProfit))
+			return false;
+		if (region == null) {
+			if (other.region != null)
+				return false;
+		} else if (!region.equals(other.region))
+			return false;
+		if (Double.doubleToLongBits(taxRate) != Double.doubleToLongBits(other.taxRate))
+			return false;
+		return true;
 	}
 	
 	
